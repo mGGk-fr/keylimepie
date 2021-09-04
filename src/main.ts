@@ -1,9 +1,10 @@
 import App from './App.svelte';
+import en from "./langs/en";
 
 const app = new App({
 	target: document.body,
 	props: {
-		name: 'world'
+		lang: en
 	}
 });
 

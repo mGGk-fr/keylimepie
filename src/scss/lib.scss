@@ -1,1 +1,3 @@
-$color-red: red;
+@import "node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "vars/_breakpoint.scss";
+@import "vars/_colors.scss";
