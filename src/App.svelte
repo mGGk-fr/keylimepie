@@ -1,15 +1,19 @@
 <script lang="ts">
-	import * as config from './store/config';
+	import {lang, mode} from "./store/config";
 	import KeyLimePieInfoBox from "./components/KeyLimePieInfoBox.svelte";
 	import type KeyLimePieLang from "./types/KeyLimePieLang";
+	import KeyLimePieState from "./enum/klpState";
+	import fr from "./langs/fr";
 
-	export let lang: KeyLimePieLang;
+	export let userLang: KeyLimePieLang = fr;
 
-	config.lang.set(lang);
+	lang.set(userLang);
 </script>
 
 <div class="key-lime-pie">
-	<KeyLimePieInfoBox />
+	{#if $mode === KeyLimePieState.INITIAL_ASK}
+		<KeyLimePieInfoBox />
+	{/if}
 </div>
 
 <style lang="scss">
