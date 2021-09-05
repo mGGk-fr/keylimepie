@@ -1,9 +1,10 @@
 <script lang="ts">
-	import {lang, mode} from "./store/config";
+	import {lang, status} from "./store/config";
 	import KeyLimePieInfoBox from "./components/KeyLimePieInfoBox.svelte";
 	import type KeyLimePieLang from "./types/KeyLimePieLang";
 	import KeyLimePieState from "./enum/klpState";
 	import fr from "./langs/fr";
+	import KeyLimePieCookieSelector from "./components/KeyLimePieCookieSelector.svelte";
 
 	export let userLang: KeyLimePieLang = fr;
 
@@ -11,8 +12,11 @@
 </script>
 
 <div class="key-lime-pie">
-	{#if $mode === KeyLimePieState.INITIAL_ASK}
+	{#if $status === KeyLimePieState.INITIAL_ASK}
 		<KeyLimePieInfoBox />
+	{/if}
+	{#if $status === KeyLimePieState.COOKIES_SELECTOR}
+		<KeyLimePieCookieSelector/>
 	{/if}
 </div>
 

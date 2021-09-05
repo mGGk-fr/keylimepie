@@ -15,6 +15,7 @@
     "@tsconfig/svelte": "^2.0.0",
     "autoprefixer": "^10.3.3",
     "breakpoint-sass": "^2.7.1",
+    "js-cookie": "^3.0.1",
     "node-sass": "^6.0.1",
     "postcss": "^8.3.6",
     "rollup": "^2.3.4",

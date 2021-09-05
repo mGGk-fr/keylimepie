@@ -11,7 +11,7 @@
         <KeyLimePieButton>
             {$lang.denyAll}
         </KeyLimePieButton>
-        <KeyLimePieButton>
+        <KeyLimePieButton on:click={showSettings}>
             {$lang.personalize}
         </KeyLimePieButton>
     </div>
@@ -20,9 +20,15 @@
 <script lang="ts">
     import KeyLimePieButton from "./KeyLimePieButton.svelte";
     import KeyLimePieDialogMode from "../enum/dialogMode";
-    import {lang} from "../store/config";
+    import {lang, status} from "../store/config";
+    import KeyLimePieState from "../enum/klpState";
 
     export let mode: string = KeyLimePieDialogMode.DIALOG;
+
+    function showSettings() {
+        console.log("show")
+        status.set(KeyLimePieState.COOKIES_SELECTOR)
+    }
 </script>
 
 <style lang="scss">
