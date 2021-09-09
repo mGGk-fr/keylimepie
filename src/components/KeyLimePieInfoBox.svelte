@@ -1,39 +1,3 @@
-<script lang="ts">
-    import Core from "../class/Core";
-    import KeyLimePieButton from "./KeyLimePieButton.svelte";
-    import KeyLimePieDialogMode from "../enum/DialogMode";
-    import {lang} from "../store/config";
-    import KeyLimePieState from "../enum/Status";
-
-    const { mode, status } = Core;
-
-    function showSettings() {
-        console.log("show")
-        status.set(KeyLimePieState.COOKIES_SELECTOR)
-    }
-
-
-</script>
-
-<div
-        class="key-lime-pie-info"
-        class:key-lime-pie-info--dialog={$mode === KeyLimePieDialogMode.DIALOG}
-        class:key-lime-pie-info--bottom-bar={$mode === KeyLimePieDialogMode.BOTTOM_BAR}
->
-    {$lang.thisWebsiteUseCookies}
-    <div class="key-lime-pie-info__actions">
-        <KeyLimePieButton>
-            {$lang.acceptAll}
-        </KeyLimePieButton>
-        <KeyLimePieButton>
-            {$lang.denyAll}
-        </KeyLimePieButton>
-        <KeyLimePieButton on:click={showSettings}>
-            {$lang.personalize}
-        </KeyLimePieButton>
-    </div>
-</div>
-
 <style lang="scss">
   .key-lime-pie-info {
     $block-selector: &;
@@ -84,7 +48,6 @@
       border-radius: 0.5em;
       animation: scaleUp 0.5s;
 
-
       @include breakpoint($breakpoint-desktop) {
         width: 50em;
       }
@@ -131,3 +94,39 @@
     }
   }
 </style>
+
+<script lang="ts">
+  import Core from '../class/Core'
+  import KeyLimePieButton from './KeyLimePieButton.svelte'
+  import KeyLimePieDialogMode from '../enum/DialogMode'
+  import { lang } from '../store/config'
+  import KeyLimePieState from '../enum/Status'
+
+  const { mode, status } = Core
+
+  function showSettings() {
+    console.log('show')
+      if (status) {
+          status.set(KeyLimePieState.COOKIES_SELECTOR)
+      }
+  }
+</script>
+
+<div
+  class="key-lime-pie-info"
+  class:key-lime-pie-info--dialog={$mode === KeyLimePieDialogMode.DIALOG}
+  class:key-lime-pie-info--bottom-bar={$mode === KeyLimePieDialogMode.BOTTOM_BAR}
+>
+  {$lang.thisWebsiteUseCookies}
+  <div class="key-lime-pie-info__actions">
+    <KeyLimePieButton>
+      {$lang.acceptAll}
+    </KeyLimePieButton>
+    <KeyLimePieButton>
+      {$lang.denyAll}
+    </KeyLimePieButton>
+    <KeyLimePieButton on:click={showSettings}>
+      {$lang.personalize}
+    </KeyLimePieButton>
+  </div>
+</div>

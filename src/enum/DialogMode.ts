@@ -1,6 +1,6 @@
 enum DialogMode {
-    BOTTOM_BAR = "bottom-bar",
-    DIALOG = "dialog"
+  BOTTOM_BAR = 'bottom-bar',
+  DIALOG = 'dialog'
 }
 
-export default DialogMode;
+export default DialogMode

@@ -1,34 +1,28 @@
-import {get, writable, Writable} from "svelte/store";
+import { get, writable, Writable } from 'svelte/store'
 
-import en from "../langs/en";
+import en from '../langs/en'
 
-import DialogMode from "../enum/DialogMode";
-import Status from "../enum/Status";
-import type Service from "../types/Service";
+import DialogMode from '../enum/DialogMode'
+import Status from '../enum/Status'
+import type Service from '../types/Service'
 
 class Core {
-    constructor(
-       public lang: Writable<object> = writable(en),
-       public services: Writable<Array<Service>> = writable([]),
-       public mode: Writable<DialogMode> = writable(DialogMode.DIALOG),
-       public status: Writable<Status> = writable(Status.INITIAL_ASK),
-    ) {
+  constructor(
+    public lang: Writable<object> = writable(en),
+    public services: Writable<Array<Service>> = writable([]),
+    public mode: Writable<DialogMode> = writable(DialogMode.DIALOG),
+    public status: Writable<Status> = writable(Status.INITIAL_ASK)
+  ) {}
 
+  invokeService(key) {
+    if (get(this.services)[key]) {
+      get(this.services)[key].js()
     }
+  }
 
-    invokeService(key) {
-        if(get(this.services)[key]) {
-            get(this.services)[key].js();
-        }
-    }
+  getCookie() {}
 
-    getCookie() {
-
-    }
-
-    setCookie() {
-
-    }
+  setCookie() {}
 }
 
-export default new Core();
+export default new Core()

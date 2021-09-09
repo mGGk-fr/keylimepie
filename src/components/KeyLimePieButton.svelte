@@ -1,20 +1,3 @@
-<script lang="ts">
-    import { createEventDispatcher } from 'svelte'
-
-    export let red: Boolean = false;
-    export let green: Boolean = false;
-
-    const dispatch = createEventDispatcher()
-
-    function emitClick() {
-        dispatch("click");
-    }
-</script>
-
-<button class="key-lime-pie-button" class:key-lime-pie-button--red={red} class:key-lime-pie-button--green={green} on:click={emitClick}>
-    <slot></slot>
-</button>
-
 <style lang="scss">
   .key-lime-pie-button {
     border: none;
@@ -46,3 +29,25 @@
     }
   }
 </style>
+
+<script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+
+  export let red: Boolean = false
+  export let green: Boolean = false
+
+  const dispatch = createEventDispatcher()
+
+  function emitClick() {
+    dispatch('click')
+  }
+</script>
+
+<button
+  class="key-lime-pie-button"
+  class:key-lime-pie-button--red={red}
+  class:key-lime-pie-button--green={green}
+  on:click={emitClick}
+>
+  <slot />
+</button>

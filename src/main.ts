@@ -1,3 +1,3 @@
-import Manager from "./class/Manager";
+import Manager from './class/Manager'
 
-export default Manager;
+export default Manager
