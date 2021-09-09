@@ -1,7 +1,24 @@
+<script lang="ts">
+    import Core from "../class/Core";
+    import KeyLimePieButton from "./KeyLimePieButton.svelte";
+    import KeyLimePieDialogMode from "../enum/DialogMode";
+    import {lang} from "../store/config";
+    import KeyLimePieState from "../enum/Status";
+
+    const { mode, status } = Core;
+
+    function showSettings() {
+        console.log("show")
+        status.set(KeyLimePieState.COOKIES_SELECTOR)
+    }
+
+
+</script>
+
 <div
         class="key-lime-pie-info"
-        class:key-lime-pie-info--dialog={mode === KeyLimePieDialogMode.DIALOG}
-        class:key-lime-pie-info--bottom-bar={mode === KeyLimePieDialogMode.BOTTOM_BAR}
+        class:key-lime-pie-info--dialog={$mode === KeyLimePieDialogMode.DIALOG}
+        class:key-lime-pie-info--bottom-bar={$mode === KeyLimePieDialogMode.BOTTOM_BAR}
 >
     {$lang.thisWebsiteUseCookies}
     <div class="key-lime-pie-info__actions">
@@ -16,20 +33,6 @@
         </KeyLimePieButton>
     </div>
 </div>
-
-<script lang="ts">
-    import KeyLimePieButton from "./KeyLimePieButton.svelte";
-    import KeyLimePieDialogMode from "../enum/dialogMode";
-    import {lang, status} from "../store/config";
-    import KeyLimePieState from "../enum/klpState";
-
-    export let mode: string = KeyLimePieDialogMode.DIALOG;
-
-    function showSettings() {
-        console.log("show")
-        status.set(KeyLimePieState.COOKIES_SELECTOR)
-    }
-</script>
 
 <style lang="scss">
   .key-lime-pie-info {

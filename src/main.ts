@@ -1,3 +1,3 @@
-import KeyLimePieManager from "./class/KeyLimePieManager";
+import Manager from "./class/Manager";
 
-export default KeyLimePieManager;
+export default Manager;

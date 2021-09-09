@@ -1,8 +1,8 @@
 import KeyLimePie from "../components/KeyLimePie.svelte";
-import KeyLimePieCore from "./KeyLimePieCore";
+import KeyLimePieCore from "./Core";
 import services from "../services/services";
 
-class KeyLimePieManager {
+class Manager {
     instance;
     declaredServices = {};
 
@@ -28,4 +28,4 @@ class KeyLimePieManager {
     }
 }
 
-export default KeyLimePieManager;
+export default Manager;

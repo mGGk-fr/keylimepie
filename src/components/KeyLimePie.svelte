@@ -1,12 +1,19 @@
 <script lang="ts">
 	import KeyLimePieInfoBox from "./KeyLimePieInfoBox.svelte";
-	import KeyLimePieCore from "../class/KeyLimePieCore";
+	import Core from "../class/Core";
+	import Status from "../enum/Status";
+	import KeyLimePieCookieSelector from "./KeyLimePieCookieSelector.svelte";
 
-	KeyLimePieCore.invokeService("googletagmanager");
+	const { status } = Core;
 </script>
 
 <div class="key-lime-pie">
-	<KeyLimePieInfoBox />
+	{#if $status === Status.INITIAL_ASK}
+		<KeyLimePieInfoBox />
+	{/if}
+	{#if $status === Status.COOKIES_SELECTOR}
+		<KeyLimePieCookieSelector />
+	{/if}
 </div>
 
 <style lang="scss">
