@@ -1,6 +1,6 @@
-import type KeyLimePieLang from "../types/KeyLimePieLang";
+import type Lang from "../types/Lang";
 
-const KeyLimePieLangEN: KeyLimePieLang = {
+const KeyLimePieLangEN: Lang = {
     thisWebsiteUseCookies:
         "This website use cookies, you can choose what to enable or not",
     acceptAll: "Accept all",

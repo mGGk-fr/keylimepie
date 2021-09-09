@@ -1,4 +1,4 @@
-interface KeyLimePieLang {
+interface Lang {
     thisWebsiteUseCookies: string;
     acceptAll: string;
     denyAll: string;
@@ -11,4 +11,4 @@ interface KeyLimePieLang {
     };
 }
 
-export default KeyLimePieLang;
+export default Lang;
