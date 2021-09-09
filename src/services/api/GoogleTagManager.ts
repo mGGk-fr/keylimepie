@@ -1,10 +1,12 @@
+import type Service from "../../types/Service";
+
 declare global {
     interface Window {
         dataLayer:any;
     }
 }
 
-export default {
+const GoogleTagManager: Service = {
     key: "googletagmanager",
     type: "api",
     name: "Google Tag Manager",
@@ -30,3 +32,5 @@ export default {
         document.head.append(script);
     }
 }
+
+export default GoogleTagManager;
