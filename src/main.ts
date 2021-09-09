@@ -1,11 +1,3 @@
-import App from './App.svelte';
-import fr from "./langs/fr";
+import KeyLimePieManager from "./class/KeyLimePieManager";
 
-const app = new App({
-	target: document.body,
-	props: {
-		userLang: fr
-	}
-});
-
-export default app;
+export default KeyLimePieManager;

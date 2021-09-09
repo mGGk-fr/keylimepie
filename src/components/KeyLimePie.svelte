@@ -1,0 +1,24 @@
+<script lang="ts">
+	import KeyLimePieInfoBox from "./KeyLimePieInfoBox.svelte";
+	import KeyLimePieCore from "../class/KeyLimePieCore";
+
+	KeyLimePieCore.invokeService("googletagmanager");
+</script>
+
+<div class="key-lime-pie">
+	<KeyLimePieInfoBox />
+</div>
+
+<style lang="scss">
+	.key-lime-pie {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

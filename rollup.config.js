@@ -35,7 +35,7 @@ export default {
 	output: {
 		sourcemap: true,
 		format: 'iife',
-		name: 'app',
+		name: 'KeyLimePie',
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
