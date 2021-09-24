@@ -1,31 +1,46 @@
-import KeyLimePie from '../components/KeyLimePie.svelte'
-import KeyLimePieCore from './Core'
-import services from '../services/services'
+import KeyLimePie from '../components/KeyLimePie.svelte';
+import KeyLimePieCore from './Core';
+import services from '../services/services';
+import Service from '../types/Service';
+import Lang from '../types/Lang';
+import Langs from '../langs/Langs';
 
 class Manager {
-  instance
-  declaredServices = {}
+  instance: KeyLimePie | undefined = undefined;
+  langs: Record<string, Lang> = Langs;
+  declaredServices: Record<string, Service> = {};
+  selectedLang: Lang = Langs.en;
 
   constructor() {
-    console.log('KeyLimePie V1 is booting')
+    console.log('KeyLimePie V1 is booting');
   }
 
-  addService(serviceKey, settings) {
+  addService(serviceKey: string, settings: Record<string, unknown>): void {
     const service = Object.values(services).find(service => {
-      return (service.key = serviceKey)
-    })
+      return (service.key = serviceKey);
+    });
     if (service) {
-      service.settings = settings
+      service.settings = settings;
+      this.declaredServices[serviceKey] = service;
     }
-    this.declaredServices[serviceKey] = service
   }
 
-  initialise() {
-    KeyLimePieCore.services.set(this.declaredServices)
+  setLang(langKey: string): void {
+    if (this.langs[langKey]) {
+      this.selectedLang = this.langs[langKey];
+    } else {
+      throw new Error('Unknown lang');
+    }
+  }
+
+  initialise(): void {
+    KeyLimePieCore.services.set(this.declaredServices);
+    KeyLimePieCore.lang.set(this.selectedLang);
     this.instance = new KeyLimePie({
       target: document.body
-    })
+    });
+    KeyLimePieCore.initLogic();
   }
 }
 
-export default Manager
+export default Manager;

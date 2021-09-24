@@ -96,19 +96,17 @@
 </style>
 
 <script lang="ts">
-  import Core from '../class/Core'
-  import KeyLimePieButton from './KeyLimePieButton.svelte'
-  import KeyLimePieDialogMode from '../enum/DialogMode'
-  import { lang } from '../store/config'
-  import KeyLimePieState from '../enum/Status'
+  import Core from '../class/Core';
+  import KeyLimePieButton from './KeyLimePieButton.svelte';
+  import KeyLimePieDialogMode from '../enum/DialogMode';
+  import KeyLimePieState from '../enum/Status';
 
-  const { mode, status } = Core
+  const { mode, status, lang } = Core;
 
   function showSettings() {
-    console.log('show')
-      if (status) {
-          status.set(KeyLimePieState.COOKIES_SELECTOR)
-      }
+    if (status) {
+      status.set(KeyLimePieState.COOKIES_SELECTOR);
+    }
   }
 </script>
 

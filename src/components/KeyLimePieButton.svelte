@@ -31,15 +31,15 @@
 </style>
 
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
+  import { createEventDispatcher } from 'svelte';
 
-  export let red: Boolean = false
-  export let green: Boolean = false
+  export let red = false;
+  export let green = false;
 
-  const dispatch = createEventDispatcher()
+  const dispatch = createEventDispatcher();
 
   function emitClick() {
-    dispatch('click')
+    dispatch('click');
   }
 </script>
 

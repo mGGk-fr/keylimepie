@@ -1,8 +1,8 @@
-import type Service from '../../types/Service'
+import type Service from '../../types/Service';
 
 declare global {
   interface Window {
-    dataLayer: any
+    dataLayer: Array<unknown>;
   }
 }
 
@@ -37,23 +37,24 @@ const GoogleTagManager: Service = {
     'acs'
   ],
   settings: {
-    gtmId: undefined
+    gtmId: ''
   },
   js: function () {
-    'use strict'
+    'use strict';
     if (this.settings.gtmId === undefined) {
-      return
+      return;
     }
-    window.dataLayer = window.dataLayer || []
+    window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'gtm.start': new Date().getTime(),
       event: 'gtm.js'
-    })
-    var script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = 'https://www.googletagmanager.com/gtm.js?id=' + this.settings.gtmId
-    document.head.append(script)
+    });
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${this.settings.gtmId}`;
+    document.head.append(script);
   }
-}
+};
 
-export default GoogleTagManager
+export default GoogleTagManager;

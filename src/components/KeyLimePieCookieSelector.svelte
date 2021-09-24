@@ -13,7 +13,9 @@
 </style>
 
 <script lang="ts">
-  import { lang } from '../store/config'
+  import Core from '../class/Core';
+  import KeyLimePieService from './KeyLimePieService.svelte';
+  const { lang, services } = Core;
 </script>
 
 <div class="key-lime-pie-cookie-selector">
@@ -22,6 +24,10 @@
     <p>
       {$lang.dialog.description}
     </p>
-    <div class="key-lime-pie-cookie-selector__services"></div>
+    <div class="key-lime-pie-cookie-selector__services">
+      {#each Object.values($services) as service}
+        <KeyLimePieService {service} />
+      {/each}
+    </div>
   </div>
 </div>

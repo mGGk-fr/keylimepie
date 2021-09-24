@@ -1,16 +1,16 @@
-import type Lang from '../types/Lang'
+import type Lang from '../types/Lang';
 
 const KeyLimePieLangEN: Lang = {
   thisWebsiteUseCookies: 'This website use cookies, you can choose what to enable or not',
   acceptAll: 'Accept all',
   denyAll: 'Deny all',
-  personalize: 'Personaliser',
+  personalize: 'Personalize',
   dialog: {
-    header: 'Contrôle des cookies',
-    description: 'Ce panneau vous permet de contrôler les cookies à autoriser ou non',
-    allow: 'Autoriser',
-    deny: 'Refuser'
+    header: 'Cookie control',
+    description: 'This panel allow you to manager cookies and services',
+    allow: 'Allow',
+    deny: 'Deny'
   }
-}
+};
 
-export default KeyLimePieLangEN
+export default KeyLimePieLangEN;

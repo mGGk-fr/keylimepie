@@ -13,19 +13,21 @@
 </style>
 
 <script lang="ts">
-  import KeyLimePieInfoBox from './KeyLimePieInfoBox.svelte'
-  import Core from '../class/Core'
-  import Status from '../enum/Status'
-  import KeyLimePieCookieSelector from './KeyLimePieCookieSelector.svelte'
+  import KeyLimePieInfoBox from './KeyLimePieInfoBox.svelte';
+  import Core from '../class/Core';
+  import Status from '../enum/Status';
+  import KeyLimePieCookieSelector from './KeyLimePieCookieSelector.svelte';
 
-  const { status } = Core
+  const { status } = Core;
 </script>
 
-<div class="key-lime-pie">
-  {#if $status === Status.INITIAL_ASK}
-    <KeyLimePieInfoBox />
-  {/if}
-  {#if $status === Status.COOKIES_SELECTOR}
-    <KeyLimePieCookieSelector />
-  {/if}
-</div>
+{#if $status !== Status.NO_COOKIES}
+  <div class="key-lime-pie">
+    {#if $status === Status.INITIAL_ASK}
+      <KeyLimePieInfoBox />
+    {/if}
+    {#if $status === Status.COOKIES_SELECTOR}
+      <KeyLimePieCookieSelector />
+    {/if}
+  </div>
+{/if}
