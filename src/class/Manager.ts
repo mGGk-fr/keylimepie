@@ -1,8 +1,8 @@
 import KeyLimePie from '../components/KeyLimePie.svelte';
 import KeyLimePieCore from './Core';
 import services from '../services/services';
-import Service from '../types/Service';
-import Lang from '../types/Lang';
+import type Service from '../types/Service';
+import type Lang from '../types/Lang';
 import Langs from '../langs/Langs';
 
 class Manager {
