@@ -1,4 +1,4 @@
-import type Lang from '../types/Lang'
+import type Lang from '../types/Lang';
 
 const KeyLimePieLangFR: Lang = {
   thisWebsiteUseCookies:
@@ -9,9 +9,14 @@ const KeyLimePieLangFR: Lang = {
   dialog: {
     header: 'Contrôle des cookies',
     description: 'Ce panneau vous permet de contrôler les cookies à autoriser ou non',
+    policy: 'Politique de confidentialité',
     allow: 'Autoriser',
     deny: 'Refuser'
+  },
+  categories: {
+    api: 'Api',
+    analytics: 'Analyse'
   }
-}
+};
 
-export default KeyLimePieLangFR
+export default KeyLimePieLangFR;

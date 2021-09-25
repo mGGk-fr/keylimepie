@@ -1,5 +1,5 @@
 interface ConfigCookie {
-  services: Record<string, boolean>
+  services: Record<string, boolean>;
 }
 
-export default ConfigCookie
+export default ConfigCookie;

@@ -17,7 +17,7 @@ class Manager {
 
   addService(serviceKey: string, settings: Record<string, unknown>): void {
     const service = Object.values(services).find(service => {
-      return (service.key = serviceKey);
+      return service.key === serviceKey;
     });
     if (service) {
       service.settings = settings;
@@ -34,6 +34,7 @@ class Manager {
   }
 
   initialise(): void {
+    console.log(this.declaredServices);
     KeyLimePieCore.services.set(this.declaredServices);
     KeyLimePieCore.lang.set(this.selectedLang);
     this.instance = new KeyLimePie({

@@ -3,4 +3,4 @@ enum DialogMode {
   DIALOG = 'dialog'
 }
 
-export default DialogMode
+export default DialogMode;

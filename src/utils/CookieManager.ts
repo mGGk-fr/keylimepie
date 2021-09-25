@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import ConfigCookie from '../types/ConfigCookie';
+import type ConfigCookie from '../types/ConfigCookie';
 
 const KLP_CONFIG_COOKIE_NAME = 'klp_config';
 

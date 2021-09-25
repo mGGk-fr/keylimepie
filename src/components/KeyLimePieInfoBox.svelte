@@ -1,9 +1,9 @@
 <style lang="scss">
   .key-lime-pie-info {
+    @extend %box-shadow;
     $block-selector: &;
     background-color: $dialog-background;
     padding: 1em;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
     text-align: center;
     font-family: sans-serif;
 
@@ -53,13 +53,14 @@
       }
 
       #{$block-selector}__actions {
+        margin-top: 0.5em;
         @include breakpoint($breakpoint-desktop) {
           flex-direction: row;
           justify-content: center;
         }
 
         :global(.key-lime-pie-button) {
-          margin-top: 1em;
+          margin-top: 0.5em;
           @include breakpoint($breakpoint-desktop) {
             margin-left: 0.5em;
             margin-right: 0.5em;
@@ -117,10 +118,10 @@
 >
   {$lang.thisWebsiteUseCookies}
   <div class="key-lime-pie-info__actions">
-    <KeyLimePieButton>
+    <KeyLimePieButton green>
       {$lang.acceptAll}
     </KeyLimePieButton>
-    <KeyLimePieButton>
+    <KeyLimePieButton red>
       {$lang.denyAll}
     </KeyLimePieButton>
     <KeyLimePieButton on:click={showSettings}>

@@ -8,8 +8,13 @@ const KeyLimePieLangEN: Lang = {
   dialog: {
     header: 'Cookie control',
     description: 'This panel allow you to manager cookies and services',
+    policy: 'Privacy policy',
     allow: 'Allow',
     deny: 'Deny'
+  },
+  categories: {
+    api: 'Api',
+    analytics: 'Analytics'
   }
 };
 
