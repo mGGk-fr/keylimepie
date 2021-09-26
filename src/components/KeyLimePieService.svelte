@@ -40,10 +40,10 @@
 <div class="key-lime-pie-service">
   <p class="key-lime-pie-service__name">{service.name}</p>
   <a class="key-lime-pie-service__link" target="_blank" href={service.uri}>
-    {$lang.dialog.policy}
+    {lang.dialog.policy}
   </a>
   <div class="key-lime-pie-service__actions">
-    <KeyLimePieButton on:click={allowService}>{$lang.dialog.allow}</KeyLimePieButton>
-    <KeyLimePieButton on:click={denyService}>{$lang.dialog.deny}</KeyLimePieButton>
+    <KeyLimePieButton on:click={allowService}>{lang.dialog.allow}</KeyLimePieButton>
+    <KeyLimePieButton on:click={denyService}>{lang.dialog.deny}</KeyLimePieButton>
   </div>
 </div>

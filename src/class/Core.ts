@@ -12,11 +12,10 @@ import ServiceAcceptance from '../enum/ServiceAcceptance';
 
 class Core {
   constructor(
-    public lang: Writable<Lang> = writable(en),
-    public services: Writable<Record<string, Service>> = writable({}),
-    public mode: Writable<DialogMode> = writable(DialogMode.DIALOG),
-    public status: Writable<Status> = writable(Status.INITIAL_ASK),
-    public config: Writable<ConfigCookie> = writable({ services: {} })
+    public lang: Lang = en,
+    public services: Record<string, Service> = {},
+    public mode: DialogMode = DialogMode.DIALOG,
+    public status: Writable<Status> = writable(Status.INITIAL_ASK)
   ) {}
 
   initLogic(): void {
@@ -32,16 +31,12 @@ class Core {
     }
   }
 
-  get registredServices(): Record<string, Service> {
-    return get(this.services);
-  }
-
   get registredServicesKeys(): Array<string> {
-    return Object.keys(this.registredServices);
+    return Object.keys(this.services);
   }
 
   get registredServicesValues(): Array<Service> {
-    return Object.values(this.registredServices);
+    return Object.values(this.services);
   }
 
   get localConfig(): ConfigCookie {
@@ -61,7 +56,7 @@ class Core {
   loadAllowedService() {
     this.registredServicesKeys.forEach(key => {
       if (this.localConfig.services[key]) {
-        if (this.registredServices[key]) {
+        if (this.services[key]) {
           this.invokeService(key);
         }
       }
@@ -81,8 +76,8 @@ class Core {
   }
 
   invokeService(key: string): void {
-    if (this.registredServices[key]) {
-      this.registredServices[key].js();
+    if (this.services[key]) {
+      this.services[key].js();
     }
   }
 

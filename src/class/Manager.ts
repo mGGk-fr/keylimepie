@@ -35,8 +35,8 @@ class Manager {
 
   initialise(): void {
     console.log(this.declaredServices);
-    KeyLimePieCore.services.set(this.declaredServices);
-    KeyLimePieCore.lang.set(this.selectedLang);
+    KeyLimePieCore.services = this.declaredServices;
+    KeyLimePieCore.lang = this.selectedLang;
     this.instance = new KeyLimePie({
       target: document.body
     });

@@ -33,7 +33,7 @@
   let activeServices: Array<Service> = [];
 
   function refreshServiceList(category: string): void {
-    activeServices = Object.values(Core.registredServices).filter((service: Service) => {
+    activeServices = Core.registredServicesValues.filter((service: Service) => {
       return service.type === category;
     });
   }
@@ -43,16 +43,16 @@
 
 <div class="key-lime-pie-cookie-selector">
   <div class="key-lime-pie-cookie-selector__header">
-    <p class="key-lime-pie-cookie-selector__header-title">{$lang.dialog.header}</p>
+    <p class="key-lime-pie-cookie-selector__header-title">{lang.dialog.header}</p>
     <p>
-      {$lang.dialog.description}
+      {lang.dialog.description}
     </p>
     <div class="key-lime-pie-cookie-selector__selector">
       <ul class="key-lime-pie-cookie-selector__categories">
         {#each Core.categories as category}
           <li class="key-lime-pie-cookie-selector__category">
             <KeyLimePieButton on:click={() => refreshServiceList(category)}>
-              {$lang.categories[category]}
+              {lang.categories[category]}
             </KeyLimePieButton>
           </li>
         {/each}

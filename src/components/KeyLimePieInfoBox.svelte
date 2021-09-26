@@ -113,19 +113,19 @@
 
 <div
   class="key-lime-pie-info"
-  class:key-lime-pie-info--dialog={$mode === KeyLimePieDialogMode.DIALOG}
-  class:key-lime-pie-info--bottom-bar={$mode === KeyLimePieDialogMode.BOTTOM_BAR}
+  class:key-lime-pie-info--dialog={mode === KeyLimePieDialogMode.DIALOG}
+  class:key-lime-pie-info--bottom-bar={mode === KeyLimePieDialogMode.BOTTOM_BAR}
 >
-  {$lang.thisWebsiteUseCookies}
+  {lang.thisWebsiteUseCookies}
   <div class="key-lime-pie-info__actions">
     <KeyLimePieButton green>
-      {$lang.acceptAll}
+      {lang.acceptAll}
     </KeyLimePieButton>
     <KeyLimePieButton red>
-      {$lang.denyAll}
+      {lang.denyAll}
     </KeyLimePieButton>
     <KeyLimePieButton on:click={showSettings}>
-      {$lang.personalize}
+      {lang.personalize}
     </KeyLimePieButton>
   </div>
 </div>
