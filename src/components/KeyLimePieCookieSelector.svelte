@@ -28,6 +28,7 @@
   import Core from '../class/Core';
   import KeyLimePieService from './KeyLimePieService.svelte';
   import KeyLimePieButton from './KeyLimePieButton.svelte';
+  import { onMount } from 'svelte';
   const { lang } = Core;
 
   let activeServices: Array<Service> = [];
@@ -38,7 +39,9 @@
     });
   }
 
-  refreshServiceList(Core.categories[0]);
+  onMount(() => {
+    refreshServiceList(Core.categories[0]);
+  });
 </script>
 
 <div class="key-lime-pie-cookie-selector">

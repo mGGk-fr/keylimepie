@@ -18,21 +18,32 @@
 </style>
 
 <script lang="ts">
+  import { get } from 'svelte/store';
   import type Service from '../types/Service';
   import KeyLimePieButton from './KeyLimePieButton.svelte';
   import Core from '../class/Core';
   import CookieManager from '../utils/CookieManager';
+  import ServiceAcceptance from '../enum/ServiceAcceptance';
 
-  const { lang } = Core;
+  const { lang, servicesStatus } = Core;
 
   export let service: Service;
+  let isAllowed: ServiceAcceptance;
 
   function allowService() {
+    servicesStatus.set({
+      ...get(servicesStatus),
+      [service.key]: ServiceAcceptance.ALLOWED
+    });
     CookieManager.allowService(service.key);
     Core.invokeService(service.key);
   }
 
   function denyService() {
+    servicesStatus.set({
+      ...get(servicesStatus),
+      [service.key]: ServiceAcceptance.DENIED
+    });
     CookieManager.denyService(service.key);
   }
 </script>
@@ -43,7 +54,13 @@
     {lang.dialog.policy}
   </a>
   <div class="key-lime-pie-service__actions">
-    <KeyLimePieButton on:click={allowService}>{lang.dialog.allow}</KeyLimePieButton>
-    <KeyLimePieButton on:click={denyService}>{lang.dialog.deny}</KeyLimePieButton>
+    <KeyLimePieButton
+      green={$servicesStatus[service.key] === ServiceAcceptance.ALLOWED}
+      on:click={allowService}>{lang.dialog.allow}</KeyLimePieButton
+    >
+    <KeyLimePieButton
+      red={$servicesStatus[service.key] === ServiceAcceptance.DENIED}
+      on:click={denyService}>{lang.dialog.deny}</KeyLimePieButton
+    >
   </div>
 </div>

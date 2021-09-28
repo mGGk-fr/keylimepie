@@ -11,17 +11,17 @@ import CookieManager from '../utils/CookieManager';
 import ServiceAcceptance from '../enum/ServiceAcceptance';
 
 class Core {
-  constructor(
-    public lang: Lang = en,
-    public services: Record<string, Service> = {},
-    public mode: DialogMode = DialogMode.DIALOG,
-    public status: Writable<Status> = writable(Status.INITIAL_ASK)
-  ) {}
+  public lang: Lang = en;
+  public services: Record<string, Service> = {};
+  public mode: DialogMode = DialogMode.DIALOG;
+  public status: Writable<Status> = writable(Status.INITIAL_ASK);
+  public servicesStatus: Writable<Record<string, ServiceAcceptance>> = writable({});
 
   initLogic(): void {
     if (this.registredServicesKeys.length === 0) {
       this.status.set(Status.NO_COOKIES);
     } else {
+      this.loadServicesStatus();
       if (!this.checkServiceCohesion()) {
         this.status.set(Status.INITIAL_ASK);
       } else {
@@ -43,7 +43,20 @@ class Core {
     return CookieManager.getConfigCookie();
   }
 
-  checkServiceCohesion() {
+  loadServicesStatus(): void {
+    this.servicesStatus.set(
+      Object.keys(this.localConfig.services).reduce((acc, serviceKey) => {
+        return {
+          ...acc,
+          [serviceKey]: this.localConfig.services[serviceKey]
+            ? ServiceAcceptance.ALLOWED
+            : ServiceAcceptance.DENIED
+        };
+      }, {} as Record<string, ServiceAcceptance>)
+    );
+  }
+
+  checkServiceCohesion(): boolean {
     let isCoherent = true;
     this.registredServicesKeys.forEach((serviceKey: string) => {
       if (!this.localConfig.services[serviceKey]) {
@@ -53,12 +66,10 @@ class Core {
     return isCoherent;
   }
 
-  loadAllowedService() {
-    this.registredServicesKeys.forEach(key => {
-      if (this.localConfig.services[key]) {
-        if (this.services[key]) {
-          this.invokeService(key);
-        }
+  loadAllowedService(): void {
+    Object.keys(get(this.servicesStatus)).forEach(serviceKey => {
+      if (get(this.servicesStatus)[serviceKey]) {
+        this.invokeService(serviceKey);
       }
     });
   }
@@ -82,6 +93,7 @@ class Core {
   }
 
   getServiceStatus(key: string): ServiceAcceptance {
+    console.log(key);
     if (this.localConfig.services[key] === undefined) {
       return ServiceAcceptance.NONE;
     }
