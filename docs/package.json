@@ -1,0 +1,19 @@
+{
+  "name": "keylimepie-docs",
+  "version": "0.0.1",
+  "description": "A new way to handle cookie consent",
+  "main": "index.js",
+  "authors": {
+    "name": "Guillaume 'mGGk' Arino",
+    "email": "mggk@protonmail.ch"
+  },
+  "repository": "https://github.com/mGGk-fr/keylimepie/KeyLimePie",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}

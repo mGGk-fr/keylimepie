@@ -2,4 +2,6 @@
 /public/build/
 .idea/
 
+docs/node_modules
+
 .DS_Store
