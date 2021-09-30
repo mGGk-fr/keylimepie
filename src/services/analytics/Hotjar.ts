@@ -17,7 +17,6 @@ const Hotjar: Service = {
   type: 'analytics',
   name: 'Hotjar',
   uri: 'https://help.hotjar.com/hc/en-us/categories/115001323967-About-Hotjar',
-  needConsent: true,
   cookies: [
     '_ga',
     '_gat',

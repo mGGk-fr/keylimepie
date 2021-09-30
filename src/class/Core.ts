@@ -9,6 +9,7 @@ import type Service from '../types/Service';
 import type ConfigCookie from '../types/ConfigCookie';
 import CookieManager from '../utils/CookieManager';
 import ServiceAcceptance from '../enum/ServiceAcceptance';
+import Langs from '../langs/Langs';
 
 class Core {
   public lang: Lang = en;

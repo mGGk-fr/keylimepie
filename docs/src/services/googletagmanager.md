@@ -1,6 +1,6 @@
 # Google Tag Manager
 
-## Service key : 
+## Service key
 `googletagmanager`
 
 ## Example

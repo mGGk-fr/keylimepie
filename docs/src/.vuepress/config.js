@@ -40,6 +40,10 @@ module.exports = {
       {
         text: 'Services',
         link: '/services/'
+      },
+      {
+        text: 'API',
+        link: '/api/'
       }
     ],
     sidebar: {
@@ -48,6 +52,11 @@ module.exports = {
           title: 'Installation',
           collapsable: false,
           children: [['from-js-file', 'From JS File']]
+        },
+        {
+          title: 'Advanced',
+          collapsable: false,
+          children: [['add-custom-service', 'Add custom service']]
         }
       ],
       '/services/': [
@@ -61,7 +70,8 @@ module.exports = {
           collapsable: true,
           children: ['googletagmanager']
         }
-      ]
+      ],
+      '/api/': ['service']
     }
   },
 

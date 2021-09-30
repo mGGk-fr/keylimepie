@@ -11,7 +11,6 @@ const GoogleTagManager: Service = {
   type: 'api',
   name: 'Google Tag Manager',
   uri: 'https://policies.google.com/privacy',
-  needConsent: true,
   cookies: [
     '_ga',
     '_gat',

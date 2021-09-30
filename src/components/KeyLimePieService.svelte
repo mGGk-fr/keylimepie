@@ -1,5 +1,10 @@
 <style lang="scss">
   .key-lime-pie-service {
+    @include breakpoint($breakpoint-desktop) {
+      display: flex;
+      justify-content: space-between;
+    }
+
     &__name {
       font-weight: bold;
       margin-bottom: 0;
@@ -28,7 +33,6 @@
   const { lang, servicesStatus } = Core;
 
   export let service: Service;
-  let isAllowed: ServiceAcceptance;
 
   function allowService() {
     servicesStatus.set({
@@ -49,10 +53,12 @@
 </script>
 
 <div class="key-lime-pie-service">
-  <p class="key-lime-pie-service__name">{service.name}</p>
-  <a class="key-lime-pie-service__link" target="_blank" href={service.uri}>
-    {lang.dialog.policy}
-  </a>
+  <div class="key-lime-pie-service__descriptor">
+    <p class="key-lime-pie-service__name">{service.name}</p>
+    <a class="key-lime-pie-service__link" target="_blank" href={service.uri}>
+      {lang.dialog.policy}
+    </a>
+  </div>
   <div class="key-lime-pie-service__actions">
     <KeyLimePieButton
       green={$servicesStatus[service.key] === ServiceAcceptance.ALLOWED}

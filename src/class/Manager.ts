@@ -33,6 +33,10 @@ class Manager {
     }
   }
 
+  addCustomService(service: Service) {
+    this.declaredServices[service.key] = service;
+  }
+
   initialise(): void {
     KeyLimePieCore.services = this.declaredServices;
     KeyLimePieCore.lang = this.selectedLang;
