@@ -13,6 +13,15 @@ This method allow you to add a service to your KeyLimePie instance
 | serviceKey | string | `hotjar`                          |
 | settings   | Object | `{hotjarId: 1234, hotjarSv: 789}` |
 
+### setMode
+This method allow you to set dialog mode (bar at the bottom of screen `bottom-bar` or centered dialog `dialog`)
+
+`setMode(mode)`
+
+| Parameter | Type   | Example     |
+| --------- | ------ | ----------- |
+| mode      | string | `dialog`    |
+
 ### setLang
 This method allow you to set language to use
 
@@ -27,6 +36,6 @@ This method allow you to add a custom service that isn't embedded into KeyLimePi
 
 `addCustomService(service)`
 
-| Parameter | Type   | Example                          |
-| --------- | ------ | -------------------------------- |
+| Parameter | Type   | Example                           |
+| --------- | ------ | --------------------------------- |
 | service   | Object | A [service](/api/service/) object |

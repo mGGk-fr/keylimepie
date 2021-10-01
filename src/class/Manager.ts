@@ -4,12 +4,14 @@ import services from '../services/services';
 import type Service from '../types/Service';
 import type Lang from '../types/Lang';
 import Langs from '../langs/Langs';
+import DialogMode from '../enum/DialogMode';
 
 class Manager {
   instance: KeyLimePie | undefined = undefined;
   langs: Record<string, Lang> = Langs;
   declaredServices: Record<string, Service> = {};
   selectedLang: Lang = Langs.en;
+  selectedMode: DialogMode = DialogMode.DIALOG;
 
   addService(serviceKey: string, settings: Record<string, unknown>): void {
     const service = Object.values(services).find(service => {
@@ -27,6 +29,10 @@ class Manager {
     } else {
       throw new Error('Unknown lang');
     }
+  }
+
+  setMode(mode: DialogMode): void {
+    this.selectedMode = mode;
   }
 
   addCustomService(service: Service) {
