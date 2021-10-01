@@ -11,10 +11,6 @@ class Manager {
   declaredServices: Record<string, Service> = {};
   selectedLang: Lang = Langs.en;
 
-  constructor() {
-    console.log('KeyLimePie V1 is booting');
-  }
-
   addService(serviceKey: string, settings: Record<string, unknown>): void {
     const service = Object.values(services).find(service => {
       return service.key === serviceKey;
