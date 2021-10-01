@@ -35,13 +35,14 @@ class Manager {
     this.selectedMode = mode;
   }
 
-  addCustomService(service: Service) {
+  addCustomService(service: Service): void {
     this.declaredServices[service.key] = service;
   }
 
   initialise(): void {
     KeyLimePieCore.services = this.declaredServices;
     KeyLimePieCore.lang = this.selectedLang;
+    KeyLimePieCore.mode = this.selectedMode;
     this.instance = new KeyLimePie({
       target: document.body
     });
