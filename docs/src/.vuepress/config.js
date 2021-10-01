@@ -71,7 +71,18 @@ module.exports = {
           children: ['googletagmanager']
         }
       ],
-      '/api/': ['service']
+      '/api/': [
+        {
+          title: 'Classes',
+          collapsable: true,
+          children: ['key-lime-pie']
+        },
+        {
+          title: 'Types',
+          collapsable: true,
+          children: ['service']
+        }
+      ]
     }
   },
 
