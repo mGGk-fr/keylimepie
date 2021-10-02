@@ -12,4 +12,9 @@ The aim of this plugin is to :
 This plugin follow the KISS principle (Keep It Simple Stupid).
 
 ---
-<p style="text-align: center;">Made by Guillaume 'mGGk' Arino with ❤️ and 🧂 :D</p>
+
+<h2 style="text-align:center;">Sponsors</h2>
+There's no sponsors yet ! Feel free to contact me to add your logo here and support the project.
+
+---
+<p style="text-align: center;">Made by Guillaume 'mGGk' Arino with ❤ and 🧂 :D</p>
