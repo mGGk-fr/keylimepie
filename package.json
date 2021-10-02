@@ -5,6 +5,7 @@
   "author": "Guillaume Arino",
   "repository": "https://github.com/mGGk-fr/keylimepie",
   "homepage": "https://keylimepie.mggk.net",
+  "bugs": "https://github.com/mGGk-fr/keylimepie/issues",
   "keywords": ["cookie", "consent", "RGPD", "GPDR", "keylimepie", "tarteaucitron"],
   "license": "MIT",
   "scripts": {
