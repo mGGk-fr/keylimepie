@@ -44,6 +44,14 @@ module.exports = {
       {
         text: 'API',
         link: '/api/'
+      },
+      {
+        text: 'GitHub',
+        link: 'https://github.com/mGGk-fr/keylimepie'
+      },
+      {
+        text: 'NPM',
+        link: 'https://www.npmjs.com/package/keylimepie'
       }
     ],
     sidebar: {
