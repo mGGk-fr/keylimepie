@@ -109,6 +109,14 @@
       status.set(KeyLimePieState.COOKIES_SELECTOR);
     }
   }
+
+  function allowAllServices() {
+    Core.allowAllServices();
+  }
+
+  function denyAllServices() {
+    Core.denyAllServices();
+  }
 </script>
 
 <div
@@ -118,10 +126,10 @@
 >
   {lang.thisWebsiteUseCookies}
   <div class="key-lime-pie-info__actions">
-    <KeyLimePieButton green>
+    <KeyLimePieButton green on:click={allowAllServices}>
       {lang.acceptAll}
     </KeyLimePieButton>
-    <KeyLimePieButton red>
+    <KeyLimePieButton red on:click={denyAllServices}>
       {lang.denyAll}
     </KeyLimePieButton>
     <KeyLimePieButton on:click={showSettings}>

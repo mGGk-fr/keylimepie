@@ -16,6 +16,7 @@ class Core {
   public mode: DialogMode = DialogMode.DIALOG;
   public status: Writable<Status> = writable(Status.INITIAL_ASK);
   public servicesStatus: Writable<Record<string, ServiceAcceptance>> = writable({});
+  public hasDeniedService = false;
 
   initLogic(): void {
     if (this.registredServicesKeys.length === 0) {
@@ -92,14 +93,36 @@ class Core {
     }
   }
 
-  getServiceStatus(key: string): ServiceAcceptance {
-    console.log(key);
-    if (this.localConfig.services[key] === undefined) {
-      return ServiceAcceptance.NONE;
+  allowService(key: string): void {
+    this.servicesStatus.set({
+      ...get(this.servicesStatus),
+      [key]: ServiceAcceptance.ALLOWED
+    });
+    CookieManager.allowService(key);
+    this.invokeService(key);
+  }
+
+  denyService(key: string): void {
+    if (get(this.servicesStatus)[key] === ServiceAcceptance.ALLOWED) {
+      this.hasDeniedService = true;
     }
-    return this.localConfig.services[key]
-      ? ServiceAcceptance.ALLOWED
-      : ServiceAcceptance.DENIED;
+    this.servicesStatus.set({
+      ...get(this.servicesStatus),
+      [key]: ServiceAcceptance.DENIED
+    });
+    CookieManager.denyService(key);
+  }
+
+  allowAllServices(): void {
+    this.registredServicesKeys.forEach(serviceKey => {
+      this.allowService(serviceKey);
+    });
+  }
+
+  denyAllServices(): void {
+    this.registredServicesKeys.forEach(serviceKey => {
+      this.denyService(serviceKey);
+    });
   }
 }
 

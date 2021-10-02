@@ -6,10 +6,23 @@
     border-radius: 0.5em;
     padding: 1em;
     width: 80vw;
+    position: relative;
 
     &__header-title {
       font-weight: bold;
       text-align: center;
+    }
+
+    &__close {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      border: 0;
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     &__categories {
@@ -29,7 +42,8 @@
   import KeyLimePieService from './KeyLimePieService.svelte';
   import KeyLimePieButton from './KeyLimePieButton.svelte';
   import { onMount } from 'svelte';
-  const { lang } = Core;
+  import Status from '../enum/Status';
+  const { lang, status } = Core;
 
   let activeServices: Array<Service> = [];
 
@@ -39,12 +53,17 @@
     });
   }
 
+  function close() {
+    status.set(Status.ICON);
+  }
+
   onMount(() => {
     refreshServiceList(Core.categories[0]);
   });
 </script>
 
 <div class="key-lime-pie-cookie-selector">
+  <button class="key-lime-pie-cookie-selector__close" on:click={close}>X</button>
   <div class="key-lime-pie-cookie-selector__header">
     <p class="key-lime-pie-cookie-selector__header-title">{lang.dialog.header}</p>
     <p>

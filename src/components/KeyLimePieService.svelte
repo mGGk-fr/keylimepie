@@ -23,11 +23,9 @@
 </style>
 
 <script lang="ts">
-  import { get } from 'svelte/store';
   import type Service from '../types/Service';
   import KeyLimePieButton from './KeyLimePieButton.svelte';
   import Core from '../class/Core';
-  import CookieManager from '../utils/CookieManager';
   import ServiceAcceptance from '../enum/ServiceAcceptance';
 
   const { lang, servicesStatus } = Core;
@@ -35,20 +33,11 @@
   export let service: Service;
 
   function allowService() {
-    servicesStatus.set({
-      ...get(servicesStatus),
-      [service.key]: ServiceAcceptance.ALLOWED
-    });
-    CookieManager.allowService(service.key);
-    Core.invokeService(service.key);
+    Core.allowService(service.key);
   }
 
   function denyService() {
-    servicesStatus.set({
-      ...get(servicesStatus),
-      [service.key]: ServiceAcceptance.DENIED
-    });
-    CookieManager.denyService(service.key);
+    Core.denyService(service.key);
   }
 </script>
 
