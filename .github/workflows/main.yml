@@ -34,3 +34,15 @@ jobs:
 
       - name: Run linting
         run: npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install depedencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
