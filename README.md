@@ -1,6 +1,6 @@
 # KeyLimePie 🍋🥧
 
-KeyLimePie is a VueJs Plugin/Component to handle GPDR cookie conscent 🍪
+KeyLimePie is a Javascript Component to handle GPDR cookie conscent 🍪
 
 This plugin is inspired from the famous [TarteAuCitron](https://tarteaucitron.io/fr/).
 
@@ -14,7 +14,7 @@ This plugin follow the KISS principle (Keep It Simple Stupid).
 There's no sponsors currently, feel free to contact me for more infos
 
 ## Usage
-`TODO`
+See documentation at [https://keylimepie.mggk.net](https://keylimepie.mggk.net)
 
 ## Development stack
 
