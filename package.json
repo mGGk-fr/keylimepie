@@ -1,13 +1,14 @@
 {
   "name": "keylimepie",
   "description": "A new Javascript plugin to handle cookie consent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Guillaume Arino",
   "repository": "https://github.com/mGGk-fr/keylimepie",
   "homepage": "https://keylimepie.mggk.net",
   "bugs": "https://github.com/mGGk-fr/keylimepie/issues",
   "keywords": ["cookie", "consent", "RGPD", "GPDR", "keylimepie", "tarteaucitron"],
   "license": "MIT",
+  "files": ["public/build/**/*"],
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
