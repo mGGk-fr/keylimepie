@@ -3,5 +3,6 @@
 .idea/
 
 docs/node_modules
+stats.html
 
 .DS_Store
