@@ -1,6 +1,8 @@
 {
   "name": "keylimepie",
   "version": "0.0.1",
+  "author": "Guillaume Arino",
+  "repository": "https://github.com/mGGk-fr/keylimepie",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
