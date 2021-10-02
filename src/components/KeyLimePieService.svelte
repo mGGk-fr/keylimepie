@@ -24,9 +24,10 @@
 
 <script lang="ts">
   import type Service from '../types/Service';
-  import KeyLimePieButton from './KeyLimePieButton.svelte';
   import Core from '../class/Core';
   import ServiceAcceptance from '../enum/ServiceAcceptance';
+
+  import KeyLimePieButton from './KeyLimePieButton.svelte';
 
   const { lang, servicesStatus } = Core;
 

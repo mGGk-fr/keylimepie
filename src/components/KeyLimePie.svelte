@@ -27,9 +27,10 @@
 </style>
 
 <script lang="ts">
-  import KeyLimePieInfoBox from './KeyLimePieInfoBox.svelte';
   import Core from '../class/Core';
   import Status from '../enum/Status';
+
+  import KeyLimePieInfoBox from './KeyLimePieInfoBox.svelte';
   import KeyLimePieCookieSelector from './KeyLimePieCookieSelector.svelte';
 
   const { status } = Core;

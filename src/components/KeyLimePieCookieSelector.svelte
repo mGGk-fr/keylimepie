@@ -37,12 +37,15 @@
 </style>
 
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   import type Service from '../types/Service';
   import Core from '../class/Core';
+  import Status from '../enum/Status';
+
   import KeyLimePieService from './KeyLimePieService.svelte';
   import KeyLimePieButton from './KeyLimePieButton.svelte';
-  import { onMount } from 'svelte';
-  import Status from '../enum/Status';
+
   const { lang, status } = Core;
 
   let activeServices: Array<Service> = [];

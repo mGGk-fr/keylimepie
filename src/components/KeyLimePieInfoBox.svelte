@@ -98,9 +98,10 @@
 
 <script lang="ts">
   import Core from '../class/Core';
-  import KeyLimePieButton from './KeyLimePieButton.svelte';
   import KeyLimePieDialogMode from '../enum/DialogMode';
   import KeyLimePieState from '../enum/Status';
+
+  import KeyLimePieButton from './KeyLimePieButton.svelte';
 
   const { mode, status, lang } = Core;
 
