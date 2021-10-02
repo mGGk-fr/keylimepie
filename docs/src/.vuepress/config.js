@@ -59,7 +59,15 @@ module.exports = {
         {
           title: 'Installation',
           collapsable: false,
-          children: [['from-js-file', 'From JS File']]
+          children: [
+            ['from-js-file', 'From JS File'],
+            ['from-npm', 'From NPM']
+          ]
+        },
+        {
+          title: 'How to use',
+          collapsable: false,
+          children: ['how-to-use']
         },
         {
           title: 'Advanced',

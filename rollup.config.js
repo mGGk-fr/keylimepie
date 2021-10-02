@@ -37,7 +37,7 @@ export default {
     sourcemap: true,
     format: 'iife',
     name: 'KeyLimePie',
-    file: 'public/build/keylimepie.js'
+    file: production ? 'dist/keylimepie.js' : 'public/build/keylimepie.js'
   },
   plugins: [
     typescript({ sourceMap: !production }),
