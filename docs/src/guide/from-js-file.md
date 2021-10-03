@@ -2,7 +2,7 @@
 This guide will show you how to use KeyLimePie using the `js` and `css` distributed files.
 
 ## Getting files
-Please head to [GitHub release page](https://github.com/mGGk-fr/keylimepie) and download latest release.
+Please head to [GitHub release page](https://github.com/mGGk-fr/keylimepie/releases) and download latest release.
 
 ## Load file in your template
 Edit your `<head>` section of your template to add following code:
