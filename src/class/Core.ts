@@ -124,6 +124,12 @@ class Core {
       this.denyService(serviceKey);
     });
   }
+
+  checkForReload(): void {
+    if (this.hasDeniedService) {
+      window.location.reload();
+    }
+  }
 }
 
 export default new Core();

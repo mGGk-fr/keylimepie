@@ -57,6 +57,7 @@
   }
 
   function close() {
+    Core.checkForReload();
     status.set(Status.ICON);
   }
 

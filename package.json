@@ -1,7 +1,7 @@
 {
   "name": "keylimepie",
   "description": "A new Javascript plugin to handle cookie consent",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Guillaume Arino",
   "repository": "https://github.com/mGGk-fr/keylimepie",
   "homepage": "https://keylimepie.mggk.net",
