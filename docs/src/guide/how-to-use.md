@@ -56,4 +56,24 @@ Setting language is also very easy ! You just have to set language using followi
 </script>
 ```
 
+## Open KeyLimePie button
+GDPR rules allow user to open banner to update her preferences.
+```html
+<script>
+    function initCookieManager() {
+        const cookieManager = window.cookieManager || new KeyLimePie();
+        // addService...
+        window.cookieManager = cookieManager;
+        cookieManager.initialise();
+    }
+</script>
+```
+
+Add a button in your footer for example:
+```html
+<footer class="footer">
+    <a class="footer__link" onclick="initCookieManager()">Manager my cookies</a>
+</footer>
+```
+
 And voilà ! You are ready to be GPDR Compliant !
