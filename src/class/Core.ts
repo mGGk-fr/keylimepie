@@ -117,12 +117,14 @@ class Core {
     this.registredServicesKeys.forEach(serviceKey => {
       this.allowService(serviceKey);
     });
+    this.status.set(Status.ICON);
   }
 
   denyAllServices(): void {
     this.registredServicesKeys.forEach(serviceKey => {
       this.denyService(serviceKey);
     });
+    this.status.set(Status.ICON);
   }
 
   checkForReload(): void {
