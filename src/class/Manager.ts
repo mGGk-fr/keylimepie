@@ -39,7 +39,7 @@ class Manager {
     this.declaredServices[service.key] = service;
   }
 
-  initialise(): void {
+  initialize(): void {
     KeyLimePieCore.services = this.declaredServices;
     KeyLimePieCore.lang = this.selectedLang;
     KeyLimePieCore.mode = this.selectedMode;

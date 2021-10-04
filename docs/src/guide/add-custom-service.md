@@ -14,5 +14,5 @@ cookieManager.addCustomService({
         console.log('My custom service is loaded');
     }
 });
-cookieManager.initialise();
+cookieManager.initialize();
 ```

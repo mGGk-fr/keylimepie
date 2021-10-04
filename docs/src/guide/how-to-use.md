@@ -14,7 +14,7 @@ Instantiate KeyLimePie is quite easy
 <script>
     function initCookieManager() {
         var cookieManager = new KeyLimePie();
-        cookieManager.initialise();
+        cookieManager.initialize();
     }
 </script>
 ```
@@ -36,7 +36,7 @@ Here's an example implementing [Hotjar](/services/hotjar/) :
         var cookieManager = new KeyLimePie();
         cookieManager.addService("googletagmanager", {gtmId: '123456'});
         cookieManager.addService("hotjar", {hotjarId: 1234567, HotjarSv: 8})
-        cookieManager.initialise();
+        cookieManager.initialize();
     }
 </script>
 ```
@@ -51,7 +51,7 @@ Setting language is also very easy ! You just have to set language using followi
         cookieManager.setLang("fr");
         cookieManager.addService("googletagmanager", {gtmId: '123456'});
         cookieManager.addService("hotjar", {hotjarId: 1234567, HotjarSv: 8})
-        cookieManager.initialise();
+        cookieManager.initialize();
     }
 </script>
 ```
