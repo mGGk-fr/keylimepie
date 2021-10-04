@@ -16,7 +16,6 @@ class CookieManager {
   }
   saveConfigCookie(value: ConfigCookie) {
     Cookies.set(KLP_CONFIG_COOKIE_NAME, JSON.stringify(value), {
-      secure: true,
       sameSite: 'strict'
     });
   }

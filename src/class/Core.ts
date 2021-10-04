@@ -61,7 +61,7 @@ class Core {
   checkServiceCohesion(): boolean {
     let isCoherent = true;
     this.registredServicesKeys.forEach((serviceKey: string) => {
-      if (!this.localConfig.services[serviceKey]) {
+      if (this.localConfig.services[serviceKey] === undefined) {
         isCoherent = false;
       }
     });
