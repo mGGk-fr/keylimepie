@@ -19,6 +19,11 @@ Instantiate KeyLimePie is quite easy
 </script>
 ```
 
+
+::: warning
+Be careful, without registered service, KeylimePie modal is not display.  
+:::
+
 # Configure KeyLimePie
 Configuring KeyLimePie is simple as hell !
 
