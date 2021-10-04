@@ -17,6 +17,7 @@ class Core {
   public status: Writable<Status> = writable(Status.INITIAL_ASK);
   public servicesStatus: Writable<Record<string, ServiceAcceptance>> = writable({});
   public hasDeniedService = false;
+  public alreadyLoaded: Array<string> = [];
 
   initLogic(): void {
     if (this.registredServicesKeys.length === 0) {
@@ -91,6 +92,7 @@ class Core {
     if (this.services[key]) {
       this.services[key].js();
     }
+    this.alreadyLoaded.push(key);
   }
 
   allowService(key: string): void {
@@ -99,7 +101,9 @@ class Core {
       [key]: ServiceAcceptance.ALLOWED
     });
     CookieManager.allowService(key);
-    this.invokeService(key);
+    if (!this.alreadyLoaded.includes(key)) {
+      this.invokeService(key);
+    }
   }
 
   denyService(key: string): void {
